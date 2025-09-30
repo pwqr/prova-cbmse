@@ -23,9 +23,9 @@ Este projeto, desenvolvido como parte de uma prova prática do CBM-SE , é um si
 
 #
   Para parar e remover os contêineres, execute:
-  ```bash
+    ```bash
     make stop
-  ```
+    ```
 
 ---
 
