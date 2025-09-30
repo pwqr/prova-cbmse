@@ -7,6 +7,7 @@ Este projeto, desenvolvido como parte de uma prova prática do CBM-SE , é um si
 ### Requisitos de Instalação
 - Docker
 - Docker Compose
+- Make
 
 ### Iniciando o ambiente
 1. Clonando o repositório:
@@ -15,33 +16,16 @@ Este projeto, desenvolvido como parte de uma prova prática do CBM-SE , é um si
     cd prova-cbmse
     ```
 
-2. Execute o seguinte comando para criar uma cópia do arquivo `.env.example` e renomear para `.env`:
+2. Execute o seguinte comando para configurar e iniciar o projeto:
     ```bash
-    copy .env.example .env
+    make start
     ```
 
-3. Subindo os contêineres no Docker:
-    ```bash
-    docker compose up -d --build
-    ```
-
-4. Acessando o contêiner da aplicação:
-    ```bash
-    docker exec -it laravel_app bash 
-    ```
-
-5. Execute os seguintes comandos dentro do contêiner para configurar os pacotes PHP:
-    ```bash
-    composer install
-    php artisan key:generate
-    npm install
-    npm run build
-    ```
-
-6. Criando o banco de dados:
-    ```bash
-    php artisan migrate
-    ```
+#
+  Para parar e remover os contêineres, execute:
+  ```bash
+    make stop
+  ```
 
 ---
 
