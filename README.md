@@ -20,9 +20,9 @@ Este projeto, desenvolvido como parte de uma prova prática do CBM-SE , é um si
     ```bash
     make start
     ```
-#
- 
-3. Para parar e remover os contêineres, execute:
+
+## Gerenciamento do Ambiente
+   Para parar e remover os contêineres, execute:
     ```bash
     make stop
     ```
