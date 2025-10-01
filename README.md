@@ -21,8 +21,8 @@ Este projeto, desenvolvido como parte de uma prova prática do CBM-SE , é um si
     make start
     ```
 #
- 
-3. Para parar e remover os contêineres, execute:
+
+   Para parar e remover os contêineres, execute:
     ```bash
     make stop
     ```
