@@ -16,13 +16,12 @@ Este projeto, desenvolvido como parte de uma prova prática do CBM-SE , é um si
     cd prova-cbmse
     ```
 
-2. Execute o seguinte comando para configurar e iniciar o projeto:
+2. Execute o seguinte comando para configurar e iniciar os contêineres:
     ```bash
     make start
     ```
 
-## Gerenciamento do Ambiente
-1. Para parar e remover os contêineres, execute:
+3. Para parar e remover os contêineres, execute:
     ```bash
     make stop
     ```
