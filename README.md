@@ -22,7 +22,7 @@ Este projeto, desenvolvido como parte de uma prova prática do CBM-SE , é um si
     ```
 
 ## Gerenciamento do Ambiente
-   Para parar e remover os contêineres, execute:
+1. Para parar e remover os contêineres, execute:
     ```bash
     make stop
     ```
