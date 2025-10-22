@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 
 class CategoryController extends Controller
 {
+    /**
+     * Lista todas as categorias paginadas
+     */
     public function index()
     {
         $categories = Category::paginate(10);
@@ -15,19 +19,16 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('categories.create');
+        return view('categories.form');
     }
 
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255|unique:categories,name',
-            'description' => 'nullable|string|max:500'
-        ]);
+        Category::create($request->validated());
 
-        Category::create($request->only(['name', 'description']));
-
-        return redirect()->route('categories.index')->with('success', 'Categoria cadastrada com sucesso!');
+        return redirect()
+            ->route('categories.index')
+            ->with('success', 'Categoria cadastrada com sucesso');
     }
 
     public function edit(Category $category)
@@ -35,21 +36,21 @@ class CategoryController extends Controller
         return view('categories.form', compact('category'));
     }
 
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $request->validate([
-            'name' => 'required|string|max:255|unique:categories,name,' . $category->id,
-            'description' => 'nullable|string|max:500'
-        ]);
+        $category->update($request->validated());
 
-        $category->update($request->only(['name', 'description']));
-
-        return redirect()->route('categories.index')->with('success', 'Categoria atualizada com sucesso!');
+        return redirect()
+            ->route('categories.index')
+            ->with('success', 'Categoria atualizada com sucesso');
     }
 
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('categories.index')->with('success', 'Categoria removida com sucesso!');
+
+        return redirect()
+            ->route('categories.index')
+            ->with('success', 'Categoria removida com sucesso');
     }
 }

@@ -1,4 +1,4 @@
-Este projeto, desenvolvido como parte de uma prova prática do CBM-SE , é um sistema de gerenciamento de produtos com relacionamento a categorias. O objetivo era demonstrar o domínio sobre o framework Laravel na implementação de um CRUD, utilizando Docker.
+Este projeto, desenvolvido como parte de uma prova prática do CBM-SE, é um sistema de gerenciamento de produtos com relacionamento a categorias. O objetivo era demonstrar o domínio sobre o framework Laravel na implementação de um CRUD, utilizando Docker.
 
 ---
 

@@ -3,19 +3,15 @@
 @section('content')
     <section class="content">
         <div class="container-fluid">
-            <div class="card">
+            <div class="card shadow-sm">
                 <div class="card-header">
                     <h3 class="card-title">{{ isset($category) ? 'Editar Categoria' : 'Criar Categoria' }}</h3>
                 </div>
 
                 <div class="card-body">
-                    @if($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
                         </div>
                     @endif
 
@@ -25,20 +21,40 @@
                             @method('PUT')
                         @endif
 
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="name">Nome da Categoria</label>
-                            <input type="text" class="form-control" id="name" name="name"
-                                   value="{{ $category->name ?? old('name') }}" required>
+                            <input 
+                                type="text" 
+                                class="form-control @error('name') is-invalid @enderror"
+                                id="name" 
+                                name="name"
+                                value="{{ old('name', $category->name ?? '') }}"
+                                placeholder="Digite o nome da categoria"
+                                required
+                            >
+                            @error('name')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="description">Descrição</label>
-                            <textarea class="form-control" id="description" name="description">{{ $category->description ?? old('description') }}</textarea>
+                            <textarea 
+                                class="form-control @error('description') is-invalid @enderror"
+                                id="description" 
+                                name="description"
+                                placeholder="Adicione uma descrição"
+                            >{{ old('description', $category->description ?? '') }}</textarea>
+                            @error('description')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
 
                         <div class="form-group d-flex justify-content-start mt-3">
-                            <button type="submit" class="btn btn-success">Salvar</button>
-                            <a href="{{ route('categories.index') }}" class="btn btn-secondary ml-2">Cancelar</a>
+                            <button type="submit" class="btn btn-success">
+                                {{ isset($category) ? 'Salvar Alterações' : 'Criar Categoria' }}
+                            </button>
+                            <a href="{{ route('categories.index') }}" class="btn btn-secondary ms-2">Cancelar</a>
                         </div>
                     </form>
                 </div>
