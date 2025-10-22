@@ -41,7 +41,6 @@
                         @enderror
                     </div>
 
-                    {{-- Preço --}}
                     <div class="form-group">
                         <label for="price">Preço</label>
                         <input 
@@ -91,7 +90,7 @@
                     </div>
 
                     <div class="form-group d-flex justify-content-start mt-3">
-                        <button type="submit" class="btn btn-success">Salvar</button>
+                        <button type="submit" id="saveButton" class="btn btn-success">Salvar</button>
                         <a href="{{ route('products.index') }}" class="btn btn-secondary ml-2">Cancelar</a>
                     </div>
                 </form>
@@ -99,4 +98,15 @@
         </div>
     </div>
 </section>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    const saveButton = document.getElementById('saveButton');
+
+    form.addEventListener('submit', function() {
+        saveButton.disabled = true;
+        saveButton.innerText = 'Salvando...';
+    });
+});
+</script>
 @endsection
