@@ -16,7 +16,6 @@ start:
 	$(DOCKER_EXEC) "php artisan migrate"
 
 build:
-	$(ENV_CMD)
 	docker compose up -d --build
 
 stop:
