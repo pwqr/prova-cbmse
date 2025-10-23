@@ -8,9 +8,6 @@ use App\Http\Requests\UpdateCategoryRequest;
 
 class CategoryController extends Controller
 {
-    /**
-     * Lista todas as categorias paginadas
-     */
     public function index()
     {
         $categories = Category::paginate(10);
