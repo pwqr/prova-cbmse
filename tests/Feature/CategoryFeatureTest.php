@@ -34,7 +34,6 @@ class CategoryFeatureTest extends TestCase
         $this->assertDatabaseHas('categories', ['name' => 'Celulares atualizados']);
     }
 
-    /** @test */
     public function usuario_pode_excluir_categoria()
     {
         $category = Category::factory()->create();
